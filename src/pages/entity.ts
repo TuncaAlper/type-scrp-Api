@@ -1,7 +1,7 @@
-
 // src/pages/entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
+import { IsString, Length, MinLength } from 'class-validator'
 
 @Entity()
 export default class Page extends BaseEntity {
@@ -9,9 +9,15 @@ export default class Page extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number
 
-  @Column('text', {nullable:false})
+  @IsString()
+  @Length(5, 25)
+  @Column('text')
   title: string
 
-  @Column('text', {nullable:false})
+  @IsString()
+  @MinLength(10,{
+    message:"Content is too short"
+  })
+  @Column('text')
   content: string
 }

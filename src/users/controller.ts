@@ -35,10 +35,13 @@ async updateUser(
 
 @Post('/users')
 @HttpCode(201)
-createUser(
+async createUser(
     @Body() user: User
 ) {
     // console.log(`Incoming POST body param:`, user)
-    return user.save()
+    const {password, ...rest} = user
+    const entity = User.create(rest)
+    await entity.setPassword(password)
+    return entity.save()
 };
 }
