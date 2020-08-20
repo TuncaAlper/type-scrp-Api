@@ -18,7 +18,7 @@
     "@types/koa-bodyparser": "^4.2.2",
     "@types/koa-multer": "^1.0.0",
     "@types/koa-router": "^7.0.40",
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
